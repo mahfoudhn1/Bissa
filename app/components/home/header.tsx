@@ -11,7 +11,7 @@ const Header = () => {
 
   const pillars = [
     { name: 'BissaLab', href: '/bissalab', icon: <Beaker size={16} /> },
-    { name: 'BissaTracker', href: '/bissatracker', icon: <Globe size={16} /> },
+    { name: 'BissaTracker', href: '/bissatrack', icon: <Globe size={16} /> },
     { name: 'BissaCycle', href: '/bissacycle', icon: <Truck size={16} /> },
   ];
 
