@@ -1,5 +1,6 @@
 import React from 'react';
-import { Beaker, Globe, Truck, CheckCircle2 } from 'lucide-react';
+import Link from 'next/link'; // Import nécessaire pour Next.js
+import { Beaker, Globe, Truck, CheckCircle2, ArrowUpRight } from 'lucide-react';
 
 const AboutSection = () => {
   const pillars = [
@@ -8,28 +9,31 @@ const AboutSection = () => {
       title: 'BissaLab',
       subtitle: 'Expertise Homologuée',
       desc: "Bureau d’études agréé par le Ministère de l’Environnement. Nous accompagnons les établissements classés dans leur mise en conformité (Audits, AIE, ADD).",
-      icon: <Beaker className="text-[#FF5C28]" size={32} />,
+      icon: <Beaker className="text-[#FF5C28] group-hover:text-[#2DBE2D] transition-colors" size={32} />,
+      href: "/bissalab" 
     },
     {
       id: '02',
-      title: 'BissaLink',
+      title: 'BissaTracker',
       subtitle: 'Traçabilité Digitale',
       desc: "Digitalisation de la gestion de vos déchets. Suivez en temps réel le poids, le cash-back et votre impact RSE via notre plateforme unique en Algérie.",
-      icon: <Globe className="text-[#FF5C28]" size={32} />,
+      icon: <Globe className="text-[#FF5C28] group-hover:text-[#2DBE2D] transition-colors" size={32} />,
+      href: "/bissatrack"
     },
     {
       id: '03',
       title: 'BissaCycle',
       subtitle: 'Logistique & Valorisation',
       desc: "Transformation physique à Chlef (broyage, lavage, granulation) via notre propre flotte pour transformer vos rebuts en matières premières.",
-      icon: <Truck className="text-[#FF5C28]" size={32} />,
+      icon: <Truck className="text-[#FF5C28] group-hover:text-[#2DBE2D] transition-colors" size={32} />,
+      href: "/bissacycle"
     },
   ];
 
   return (
-    <section className="bg-white py-24 px-6 lg:px-16 overflow-hidden">
+    <section id="about" className="bg-white py-24 px-6 lg:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        {/* TOP ROW: HEADING & INTRO */}
+        {/* ENTÊTE */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
           <div className="lg:col-span-5">
             <div className="flex items-center gap-2 mb-4">
@@ -42,44 +46,56 @@ const AboutSection = () => {
               L'Expertise Intégrée de l’Économie <span className="text-[#2DBE2D]">Circulaire</span>
             </h2>
           </div>
-
           <div className="lg:col-span-7 flex flex-col justify-end">
             <p className="text-gray-600 text-lg leading-relaxed border-l-4 border-[#FF5C28] pl-6">
-              Depuis 2018, **BissaEnvironnement** transforme les défis logistiques en ressources industrielles. 
-              Installés au cœur de Chlef, notre écosystème fusionne rigueur industrielle et innovation digitale 
-              pour offrir une solution unique en Algérie.
+              Depuis 2018, **BissaEnvironnement** fusionne rigueur industrielle et innovation digitale pour offrir une solution unique en Algérie.
             </p>
           </div>
         </div>
 
-        {/* MIDDLE ROW: THE THREE PILLARS */}
+        {/* GRILLE DES PILIERS CLIQUABLES */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {pillars.map((pillar) => (
-            <div key={pillar.id} className="group relative bg-[#f8fcf9] p-8 rounded-2xl border-b-4 border-transparent hover:border-[#2DBE2D] transition-all duration-300 shadow-sm hover:shadow-xl">
+            <Link 
+              href={pillar.href} 
+              key={pillar.id}
+              className="group relative bg-[#f8fcf9] p-8 rounded-2xl border-b-4 border-transparent hover:border-[#2DBE2D] transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col h-full"
+            >
               <div className="flex justify-between items-start mb-6">
-                <div className="p-4 bg-white rounded-xl shadow-sm group-hover:bg-[#0B1C14] transition-colors duration-300">
+                <div className="p-4 bg-white rounded-xl shadow-sm group-hover:bg-[#0B1C14] transition-all duration-300">
                   {pillar.icon}
                 </div>
-                <span className="text-4xl font-black opacity-10 italic">{pillar.id}</span>
+                <div className="flex flex-col items-end">
+                  <span className="text-4xl font-black opacity-10 italic group-hover:opacity-20 transition-opacity">
+                    {pillar.id}
+                  </span>
+                  <ArrowUpRight 
+                    className="text-[#2DBE2D] opacity-0 group-hover:opacity-100 transition-all -translate-y-2 group-hover:translate-y-0" 
+                    size={20} 
+                  />
+                </div>
               </div>
+              
               <h3 className="text-2xl font-black uppercase italic text-[#0B1C14] mb-1">
                 {pillar.title}
               </h3>
               <p className="text-[#2DBE2D] font-bold text-xs uppercase mb-4 tracking-tighter">
                 {pillar.subtitle}
               </p>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-gray-500 text-sm leading-relaxed mb-8 flex-grow">
                 {pillar.desc}
               </p>
-            </div>
+              
+              <div className="mt-auto text-[10px] font-black uppercase tracking-widest text-[#0B1C14] flex items-center gap-2 group-hover:text-[#FF5C28] transition-colors">
+                Explorer <div className="w-6 h-[1px] bg-current"></div>
+              </div>
+            </Link>
           ))}
         </div>
 
-        {/* BOTTOM ROW: CALL TO ACTION / BADGE */}
+        {/* BANDEAU INFERIEUR */}
         <div className="mt-20 relative bg-[#0B1C14] rounded-3xl p-8 lg:p-12 overflow-hidden">
-          {/* Decorative Slant */}
           <div className="absolute top-0 right-0 w-1/3 h-full bg-[#2DBE2D] opacity-10 skew-x-12 translate-x-10"></div>
-          
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="flex items-center gap-6">
               <div className="bg-[#FF5C28] p-4 rounded-full animate-pulse">
@@ -87,12 +103,12 @@ const AboutSection = () => {
               </div>
               <div>
                 <h4 className="text-white text-2xl font-black uppercase italic">Unité de Transformation Intégrée</h4>
-                <p className="text-gray-400 text-sm">Répondre aux exigences de traçabilité les plus strictes.</p>
+                <p className="text-gray-400 text-sm">Traçabilité totale garantie à 100%.</p>
               </div>
             </div>
-            <button className="bg-[#FF5C28] text-white px-10 py-4 font-black uppercase italic tracking-widest hover:bg-[#2DBE2D] transition-colors rounded-sm">
+            <Link href="/contact" className="bg-[#FF5C28] text-white px-10 py-4 font-black uppercase italic tracking-widest hover:bg-[#2DBE2D] transition-colors rounded-sm text-center">
               Demander un Audit
-            </button>
+            </Link>
           </div>
         </div>
       </div>
