@@ -63,9 +63,7 @@ const Sidebar = ({ activeView, setActiveView }: any) => {
               Bissa<span className="text-[#00674F]">Link.</span>
             </span>
           </div>
-          <p className="text-[10px] font-bold text-white/30 uppercase tracking-[0.3em] mt-4 ml-1">
-            Interface Client v2.0
-          </p>
+
         </div>
 
         {/* Navigation Items */}
