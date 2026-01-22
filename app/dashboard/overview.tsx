@@ -1,124 +1,174 @@
+"use client";
+
 import React from 'react';
-import { Zap, Recycle, Leaf, TrendingUp } from 'lucide-react';
+import { Zap, Recycle, Leaf, TrendingUp, ArrowUpRight, MoreHorizontal, FileCheck } from 'lucide-react';
 
-// Copiez ici votre composant StatCard que vous avez déjà fait
-const StatCard = ({ label, value, unit, icon, trend, color }:any) => (
-
-    <div className="bg-gray-200 p-8 border-2 border-gray-100 rounded-[24px] hover:border-[#2DBE2D] transition-all group">
-        <div className="flex justify-between items-start mb-6">
-        <div className={`p-3 rounded-xl bg-gray-50 text-[#0B1C14] group-hover:bg-[#0B1C14] group-hover:text-white transition-all`}>
-     {icon}
+const StatCard = ({ label, value, unit, icon, trend, isPositive }: any) => (
+  <div className="bg-white p-8 rounded-[32px] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 group relative overflow-hidden">
+    <div className="flex justify-between items-start mb-8">
+      <div className="w-12 h-12 rounded-2xl bg-[#F4F4F1] text-[#083344] flex items-center justify-center group-hover:bg-[#00674F] group-hover:text-white transition-all duration-300">
+        {React.cloneElement(icon, { size: 24 })}
+      </div>
+      <div className={`flex items-center gap-1 px-3 py-1 rounded-full text-[10px] font-black tracking-tighter ${isPositive ? 'bg-[#00674F]/10 text-[#00674F]' : 'bg-gray-100 text-gray-400'}`}>
+        <ArrowUpRight size={12} />
+        {trend}
+      </div>
     </div>
 
-    <span className={`text-[10px] font-black px-2 py-1 rounded bg-[#2DBE2D]/10 text-[#2DBE2D]`}>
-
-    {trend}
-
-    </span>
-
+    <div>
+      <p className="text-gray-400 text-[10px] font-black uppercase tracking-[0.2em] mb-2">{label}</p>
+      <div className="flex items-baseline gap-2">
+        <span className="text-4xl font-black text-[#083344] tracking-tighter">{value}</span>
+        <span className="text-xs font-black text-gray-300 uppercase">{unit}</span>
+      </div>
     </div>
-
-    <p className="text-gray-400 text-[10px] font-black uppercase tracking-[0.2em] mb-1">{label}</p>
-    <div className="flex items-baseline gap-2">
-        <span className="text-4xl font-black italic text-[#0B1C14]">{value}</span>
-        <span className="text-sm font-bold text-gray-400 uppercase">{unit}</span>
-    </div>
-
-</div>
-
+    
+    {/* Subtle architectural accent */}
+    <div className="absolute bottom-0 right-0 w-16 h-16 bg-[#F4F4F1] rounded-tl-[40px] opacity-0 group-hover:opacity-100 transition-opacity" />
+  </div>
 );
-
 
 const Overview = () => {
   return (
-   <div className="p-10">
-          {/* Section Points & Impact */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-            <StatCard 
-              label="Points Bissa" 
-              value="12,450" 
-              unit="Pts" 
-              icon={<Zap />} 
-              trend="+12%" 
-            />
-            <StatCard 
-              label="Déchets Collectés" 
-              value="3.8" 
-              unit="Tonnes" 
-              icon={<Recycle />} 
-              trend="+5.4%" 
-            />
-            <StatCard 
-              label="CO2 Évité" 
-              value="840" 
-              unit="Kg" 
-              icon={<Leaf />} 
-              trend="+20%" 
-            />
-            <StatCard 
-              label="Taux de Tri" 
-              value="94" 
-              unit="%" 
-              icon={<TrendingUp />} 
-              trend="Stable" 
-            />
-          </div>
+    <div className="p-10 space-y-10">
+      {/* 1. KEY PERFORMANCE INDICATORS */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StatCard 
+          label="Points Bissa" 
+          value="12,450" 
+          unit="Pts" 
+          icon={<Zap />} 
+          trend="24% total" 
+          isPositive={true}
+        />
+        <StatCard 
+          label="Flux Valorisé" 
+          value="3.8" 
+          unit="Tonnes" 
+          icon={<Recycle />} 
+          trend="+5.4%" 
+          isPositive={true}
+        />
+        <StatCard 
+          label="Impact Carbone" 
+          value="840" 
+          unit="Kg CO2" 
+          icon={<Leaf />} 
+          trend="-210kg" 
+          isPositive={true}
+        />
+        <StatCard 
+          label="Indice de Tri" 
+          value="94" 
+          unit="%" 
+          icon={<TrendingUp />} 
+          trend="Optimisé" 
+          isPositive={true}
+        />
+      </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Liste des Collectes Récentes */}
-            <div className="lg:col-span-2 bg-white rounded-[32px] border border-gray-100 overflow-hidden shadow-sm">
-              <div className="p-8 border-b border-gray-50 flex justify-between items-center">
-                <h3 className="text-[#0B1C14] font-black italic uppercase">Dernières Collectes</h3>
-                <button className="text-[10px] font-black uppercase text-[#FF5C28] hover:underline">Voir tout</button>
+      <div className="grid lg:grid-cols-12 gap-8">
+        {/* 2. TRANSACTIONAL LEDGER (Recent Collections) */}
+        <div className="lg:col-span-8 bg-white rounded-[40px] border border-gray-100 shadow-sm overflow-hidden flex flex-col">
+          <div className="p-8 border-b border-gray-50 flex justify-between items-center">
+            <div>
+              <h3 className="text-[#083344] font-black uppercase tracking-tighter text-lg">Activités Récentes</h3>
+              <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">Flux de matières secondaires</p>
+            </div>
+            <button className="p-2 hover:bg-[#F4F4F1] rounded-xl transition-colors">
+              <MoreHorizontal className="text-gray-400" />
+            </button>
+          </div>
+          
+          <div className="overflow-x-auto">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="bg-[#F4F4F1]/50 text-[10px] font-black uppercase tracking-widest text-gray-400">
+                  <th className="px-8 py-5">Identifiant / Date</th>
+                  <th className="px-8 py-5">Nature du Flux</th>
+                  <th className="px-8 py-5">Masse Net</th>
+                  <th className="px-8 py-5">Statut Logistique</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-50">
+                {[
+                  { id: 'COL-882', date: '12 Jan 2026', type: 'Plastique HDPE', weight: '450 kg', status: 'Valorisé', color: 'bg-[#00674F]/10 text-[#00674F]' },
+                  { id: 'COL-881', date: '08 Jan 2026', type: 'Carton Ondulé', weight: '1.2 t', status: 'En Transit', color: 'bg-[#083344]/10 text-[#083344]' },
+                  { id: 'COL-880', date: '01 Jan 2026', type: 'E-Waste (BissaLab)', weight: '120 kg', status: 'Expertise', color: 'bg-gray-100 text-gray-500' },
+                ].map((row, i) => (
+                  <tr key={i} className="group hover:bg-[#F4F4F1]/30 transition-colors">
+                    <td className="px-8 py-6">
+                      <p className="font-black text-[#083344] text-xs uppercase">{row.id}</p>
+                      <p className="text-[10px] text-gray-400 font-bold">{row.date}</p>
+                    </td>
+                    <td className="px-8 py-6">
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#00674F]" />
+                        <span className="text-sm font-bold text-[#083344] uppercase tracking-tight">{row.type}</span>
+                      </div>
+                    </td>
+                    <td className="px-8 py-6 text-sm font-black text-[#083344]">{row.weight}</td>
+                    <td className="px-8 py-6">
+                      <span className={`px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest ${row.color}`}>
+                        {row.status}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="p-6 bg-gray-50/50 mt-auto text-center">
+             <button className="text-[10px] font-black uppercase tracking-[0.2em] text-[#00674F] hover:tracking-[0.3em] transition-all">Télécharger le rapport mensuel (PDF)</button>
+          </div>
+        </div>
+
+        {/* 3. PERFORMANCE & GOALS (Expert Card) */}
+        <div className="lg:col-span-4 space-y-6">
+          <div className="bg-[#083344] rounded-[40px] p-10 text-white relative overflow-hidden shadow-2xl">
+            <div className="relative z-10">
+              <div className="flex items-center gap-2 mb-8">
+                <FileCheck className="text-[#00674F]" size={20} />
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#00674F]">Certification RSE</span>
               </div>
-              <div className="overflow-x-auto">
-                <table className="w-full text-left">
-                  <thead className="bg-gray-50 text-[10px] font-black uppercase text-gray-400">
-                    <tr>
-                      <th className="px-8 py-4">Date</th>
-                      <th className="px-8 py-4">Type</th>
-                      <th className="px-8 py-4">Poids</th>
-                      <th className="px-8 py-4">Statut</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-50 text-sm">
-                    {[
-                      { date: '12 Oct 2023', type: 'Plastique HDPE', weight: '450 kg', status: 'Valorisé', color: 'text-green-500' },
-                      { date: '08 Oct 2023', type: 'Carton / Papier', weight: '1.2 t', status: 'En transit', color: 'text-orange-500' },
-                      { date: '01 Oct 2023', type: 'E-Waste', weight: '120 kg', status: 'Trié', color: 'text-blue-500' },
-                    ].map((row, i) => (
-                      <tr key={i} className="hover:bg-gray-50 transition-colors">
-                        <td className="px-8 py-6 font-bold text-[#0B1C14]">{row.date}</td>
-                        <td className="px-8 py-6 text-gray-500 font-medium">{row.type}</td>
-                        <td className="px-8 py-6 font-black italic">{row.weight}</td>
-                        <td className={`px-8 py-6 font-bold uppercase text-[10px] ${row.color}`}>{row.status}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              
+              <h3 className="text-3xl font-black uppercase tracking-tighter leading-none mb-4">
+                Objectif <br /><span className="text-[#00674F]">Circularité</span>
+              </h3>
+              
+              <div className="mt-10">
+                <div className="flex justify-between items-end mb-4">
+                  <span className="text-5xl font-black tracking-tighter">85%</span>
+                  <span className="text-[10px] font-bold text-white/40 uppercase">Niveau Expert</span>
+                </div>
+                <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
+                  <div className="h-full bg-[#00674F] w-[85%] rounded-full shadow-[0_0_20px_rgba(0,103,127,0.5)]" />
+                </div>
+              </div>
+
+              <div className="mt-12 p-6 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm">
+                <p className="text-[10px] font-black text-[#00674F] uppercase tracking-widest mb-2">Prochaine Étape</p>
+                <p className="text-sm font-bold leading-snug">Obtention du label "Site Industriel Propre"</p>
+                <p className="text-[10px] text-white/30 font-medium mt-2 italic">+1,200 pts bonus à l'audit BissaLab.</p>
               </div>
             </div>
+            
+            {/* Background pattern */}
+            <Recycle size={280} className="absolute -bottom-20 -right-20 text-white opacity-[0.03] -rotate-12" />
+          </div>
 
-            {/* Carte de Progression/Certification */}
-            <div className="bg-[#0B1C14] rounded-[32px] p-8 text-white relative overflow-hidden">
-              <div className="relative z-10">
-                <h3 className="text-2xl font-black italic uppercase mb-2">Objectif <span className="text-[#2DBE2D]">Zéro Déchet</span></h3>
-                <p className="text-gray-400 text-sm mb-8">Vous avez atteint 85% de votre objectif mensuel de valorisation.</p>
-                
-                <div className="w-full h-4 bg-white/10 rounded-full mb-10 overflow-hidden">
-                  <div className="h-full bg-[#2DBE2D] w-[85%] shadow-[0_0_20px_#2DBE2D]"></div>
-                </div>
-
-                <div className="bg-white/5 border border-white/10 p-6 rounded-2xl">
-                  <p className="text-[10px] font-black uppercase text-[#FF5C28] mb-2">Prochain Palier</p>
-                  <p className="font-bold italic">Badge "Champion de l'Économie Circulaire"</p>
-                  <p className="text-xs text-gray-500 mt-1">+500 points bonus à la validation.</p>
-                </div>
-              </div>
-              <Recycle size={200} className="absolute -bottom-10 -right-10 text-white opacity-5 rotate-12" />
+          <div className="bg-[#F4F4F1] p-8 rounded-[40px] flex items-center justify-between group cursor-pointer border border-transparent hover:border-[#00674F] transition-all">
+            <div>
+              <p className="text-[10px] font-black uppercase tracking-widest text-gray-400">Support Technique</p>
+              <h4 className="font-black text-[#083344] uppercase tracking-tighter">Besoins d'expertise ?</h4>
+            </div>
+            <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#083344] group-hover:bg-[#00674F] group-hover:text-white transition-all">
+              <ArrowUpRight size={20} />
             </div>
           </div>
         </div>
+      </div>
+    </div>
   );
 };
 

@@ -6,12 +6,12 @@ import {
   Users, 
   Truck, 
   Factory, 
-  LineChart, 
   Award, 
   CheckCircle2, 
   ArrowRight,
   Zap,
-  Target
+  Target,
+  Sparkles
 } from 'lucide-react';
 import Header from '../components/home/header';
 import Footer from '../components/home/footer';
@@ -22,172 +22,163 @@ const BissaSolutionsPage = () => {
       id: "01",
       title: "Diagnostic & Ingénierie",
       subTitle: "BissaLab",
-      description: "Tout commence par une maîtrise des flux. Nos experts BissaLab se déplacent sur votre site pour réaliser un audit technique complet.",
-      features: [
-        "Analyse de gisement : Quantification et qualification précise.",
-        "Schéma d'implantation : Définition stratégique des contenants.",
-        "Planification : Optimisation des fréquences de collecte."
-      ],
-      icon: <ClipboardCheck className="text-[#2DBE2D]" size={32} />,
-      color: "border-[#2DBE2D]"
+      description: "Audit technique complet sur site pour quantifier vos gisements et définir vos besoins réels.",
+      features: ["Analyse de gisement précise", "Schéma d'implantation", "Planification logistique"],
+      icon: <ClipboardCheck size={28} />,
+      accent: "text-[#00674F]"
     },
     {
       id: "02",
-      title: "Formation & Sensibilisation",
-      subTitle: "L'Humain au cœur du tri",
-      description: "La réussite du recyclage repose sur l'humain. Nous formons vos collaborateurs pour instaurer une culture du tri sélectif à la source.",
-      features: [
-        "Sensibilisation aux enjeux environnementaux.",
-        "Ateliers pratiques pour garantir la pureté des gisements."
-      ],
-      icon: <Users className="text-[#FF5C28]" size={32} />,
-      color: "border-[#FF5C28]"
+      title: "Formation Interne",
+      subTitle: "L'Humain au cœur",
+      description: "Nous formons vos équipes pour instaurer une culture du tri sélectif efficace à la source.",
+      features: ["Sensibilisation environnementale", "Ateliers pratiques de tri"],
+      icon: <Users size={28} />,
+      accent: "text-[#083344]"
     },
     {
       id: "03",
-      title: "Collecte & Logistique",
-      subTitle: "Réactivité Industrielle",
-      description: "Nous assurons l'évacuation de vos matières selon vos besoins réels avec une flotte adaptée.",
-      features: [
-        "Flexibilité : Gestion par flotte propre ou réseau certifié.",
-        "Réactivité : Un service calqué sur votre rythme de production."
-      ],
-      icon: <Truck className="text-[#2DBE2D]" size={32} />,
-      color: "border-[#2DBE2D]"
+      title: "Logistique Adaptée",
+      subTitle: "Réactivité Pro",
+      description: "Évacuation de vos matières selon votre rythme de production avec une flotte dédiée.",
+      features: ["Gestion par flotte propre", "Réactivité sous 24h/48h"],
+      icon: <Truck size={28} />,
+      accent: "text-[#00674F]"
     },
     {
       id: "04",
-      title: "Valorisation Industrielle",
+      title: "Valorisation Matière",
       subTitle: "BissaCycle",
-      description: "Vos déchets sont transformés en ressources au sein de notre unité BissaCycle ou chez nos partenaires industriels.",
-      features: [
-        "Recyclage & Réutilisation : Broyage, lavage, granulation.",
-        "Économie Circulaire : Seconde vie garantie à vos rebuts."
-      ],
-      icon: <Factory className="text-[#FF5C28]" size={32} />,
-      color: "border-[#FF5C28]"
+      description: "Transformation des déchets en ressources secondaires (granulation, lavage, broyage).",
+      features: ["Seconde vie garantie", "Réduction déchets ultimes"],
+      icon: <Factory size={28} />,
+      accent: "text-[#083344]"
     },
     {
       id: "05",
-      title: "Traçabilité Dynamique",
-      subTitle: "BissaTracker",
-      description: "Grâce au service BissaTracker, vous gardez le contrôle total sur vos données environnementales en temps réel.",
-      features: [
-        "Accès à des rapports périodiques détaillés.",
-        "Suivi précis de l'état des déchets par établissement."
-      ],
-      icon: <Target className="text-[#2DBE2D]" size={32} />,
-      color: "border-[#2DBE2D]"
+      title: "Traçabilité Live",
+      subTitle: "BissaLink",
+      description: "Contrôle total sur vos données environnementales en temps réel via votre portail dédié.",
+      features: ["Rapports périodiques", "Suivi multi-établissements"],
+      icon: <Target size={28} />,
+      accent: "text-[#00674F]"
     },
     {
       id: "06",
-      title: "Certification & RSE",
-      subTitle: "Validation Officielle",
-      description: "En fin d'année, nous validons vos efforts par des documents officiels cosignés par BissaLab et BissaCycle.",
-      features: [
-        "Certificat Annuel de Recyclage pour les autorités.",
-        "Indicateurs d'Impact : CO2 économisé et arbres préservés.",
-        "Valorisation de votre image de marque."
-      ],
-      icon: <Award className="text-[#FF5C28]" size={32} />,
-      color: "border-[#FF5C28]"
+      title: "Impact & Certification",
+      subTitle: "Validation RSE",
+      description: "Validation officielle de vos efforts par des certificats annuels et indicateurs d'impact.",
+      features: ["Certificat de recyclage", "Bilan CO2 économisé"],
+      icon: <Award size={28} />,
+      accent: "text-[#083344]"
     }
   ];
 
   return (
-    <div className="bg-white min-h-screen font-sans selection:bg-[#2DBE2D] selection:text-white">
-      {/* --- HEADER DE SECTION --- */}
+    <div className="bg-white min-h-screen font-sans selection:bg-[#00674F] selection:text-white">
       <Header/>
-      <section className="relative bg-[#0B1C14] pt-32 pb-20 px-6 lg:px-16 overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-[#2DBE2D] opacity-5 -skew-x-12 translate-x-20" />
+
+      {/* --- HERO: THE ARCHITECTURAL START --- */}
+      <section className="relative bg-[#083344] pt-48 pb-32 px-6 lg:px-16 overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(#white 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
+        <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#00674F]/20 to-transparent" />
+        
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-12 h-[2px] bg-[#FF5C28]" />
-            <span className="text-[#2DBE2D] font-black uppercase tracking-[0.3em] text-xs">Nos Solutions</span>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-12 h-1.5 bg-[#00674F] rounded-full" />
+            <span className="text-white/60 font-black uppercase tracking-[0.3em] text-[11px]">Cycle de Valeur</span>
           </div>
-          <h1 className="text-5xl md:text-8xl font-black italic uppercase leading-[0.9] text-white mb-8">
-            Un Accompagnement<br/>
-            <span className="text-[#FF5C28]">Bout en Bout</span>
+          <h1 className="text-6xl md:text-9xl font-black uppercase leading-[0.8] text-white tracking-tighter mb-10">
+            Solutions<br /><span className="text-[#00674F]">Bout en Bout.</span>
           </h1>
-          <p className="text-gray-400 max-w-3xl text-lg leading-relaxed border-l-4 border-[#2DBE2D] pl-6">
-            BissaEnvironnement ne se contente pas de ramasser des déchets. Nous déployons une méthodologie rigoureuse pour optimiser chaque étape de votre gestion environnementale, de l'audit à la valorisation finale.
+          <p className="text-xl text-blue-100/60 max-w-3xl font-medium leading-relaxed border-l-4 border-[#00674F] pl-8">
+            BissaEnvironnement déploie une ingénierie complète pour transformer votre gestion des déchets. De l'audit stratégique à la valorisation finale, nous sommes votre partenaire unique.
           </p>
         </div>
       </section>
 
-      {/* --- GRILLE DES SOLUTIONS --- */}
-      <section className="py-24 px-6 lg:px-16">
+      {/* --- SOLUTIONS GRID: MODERN CARDS --- */}
+      <section className="py-32 px-6 lg:px-16 bg-[#F4F4F1]">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {solutions.map((item) => (
-              <div 
-                key={item.id} 
-                className={`group p-8 bg-[#f9fafb] border-t-8 ${item.color} transition-all duration-300 hover:bg-white hover:shadow-2xl flex flex-col`}
-              >
-                <div className="flex justify-between items-start mb-6">
-                  <div className="bg-[#0B1C14] p-4 text-white transition-transform group-hover:scale-110">
+              <div key={item.id} className="group bg-white p-10 rounded-[48px] shadow-sm hover:shadow-2xl transition-all duration-500 border border-transparent hover:border-gray-100 flex flex-col">
+                <div className="flex justify-between items-start mb-10">
+                  <div className={`w-16 h-16 rounded-2xl bg-[#F4F4F1] ${item.accent} flex items-center justify-center group-hover:bg-[#083344] group-hover:text-white transition-all duration-500 shadow-sm`}>
                     {item.icon}
                   </div>
-                  <span className="text-5xl font-black italic text-[#0B1C14] opacity-5 group-hover:opacity-10">
+                  <span className="text-6xl font-black text-[#083344] opacity-[0.03] group-hover:opacity-10 transition-opacity">
                     {item.id}
                   </span>
                 </div>
-                
+
                 <div className="mb-6">
-                  <h4 className="text-[10px] font-black uppercase tracking-widest text-[#FF5C28] mb-1">
+                  <p className={`text-[10px] font-black uppercase tracking-[0.2em] mb-2 ${item.accent}`}>
                     {item.subTitle}
-                  </h4>
-                  <h3 className="text-xl font-black italic uppercase text-[#0B1C14] leading-tight">
+                  </p>
+                  <h3 className="text-2xl font-black uppercase text-[#083344] tracking-tighter leading-none">
                     {item.title}
                   </h3>
                 </div>
 
-                <p className="text-gray-500 text-sm leading-relaxed mb-8 flex-grow">
+                <p className="text-gray-500 font-medium text-sm leading-relaxed mb-8 flex-grow">
                   {item.description}
                 </p>
 
-                <ul className="space-y-3 mb-8">
+                <div className="space-y-3 mb-10">
                   {item.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs font-bold text-[#0B1C14] uppercase tracking-tight">
-                      <CheckCircle2 size={14} className="text-[#2DBE2D] shrink-0 mt-0.5" />
-                      {feature}
-                    </li>
+                    <div key={i} className="flex items-center gap-3">
+                      <CheckCircle2 size={14} className="text-[#00674F]" />
+                      <span className="text-[11px] font-black uppercase text-[#083344]/70 tracking-tight">{feature}</span>
+                    </div>
                   ))}
-                </ul>
-
-                <div className="pt-6 border-t border-gray-100 mt-auto">
-                  <button className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#0B1C14] group-hover:text-[#FF5C28] transition-colors">
-                    En savoir plus <ArrowRight size={14} />
-                  </button>
                 </div>
+
+                <button className="pt-6 border-t border-gray-50 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#083344] hover:text-[#00674F] transition-colors">
+                  Détails techniques <ArrowRight size={14} />
+                </button>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* --- SECTION IMPACT FINAL --- */}
-      <section className="py-20 px-6 lg:px-16 bg-[#0B1C14]">
-        <div className="max-w-7xl mx-auto bg-[#2DBE2D] p-12 md:p-20 rounded-[40px] flex flex-col lg:flex-row items-center justify-between gap-12 relative overflow-hidden">
-          <Zap size={300} className="absolute -left-20 -bottom-20 text-[#0B1C14] opacity-5" />
-          
-          <div className="relative z-10 max-w-xl">
-            <h2 className="text-4xl md:text-6xl font-black italic uppercase text-[#0B1C14] leading-[0.9] mb-6">
-              Prêt à optimiser <br/>votre impact ?
-            </h2>
-            <p className="text-[#0B1C14]/80 font-bold italic text-lg">
-              Nos experts sont prêts à réaliser votre premier diagnostic de gisement.
-            </p>
-          </div>
+      {/* --- CTA: FINAL IMPACT --- */}
+      <section className="py-32 px-6 lg:px-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-[#083344] rounded-[60px] p-12 md:p-24 relative overflow-hidden group shadow-2xl">
+            {/* Background elements */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#00674F] rounded-full blur-[150px] opacity-20 -mr-20 -mt-20 group-hover:opacity-40 transition-opacity duration-700" />
+            <Zap size={400} className="absolute -left-20 -bottom-20 text-white opacity-[0.02]" />
 
-          <div className="relative z-10 w-full lg:w-auto">
-            <button className="w-full lg:w-auto px-12 py-6 bg-[#0B1C14] text-white font-black uppercase italic tracking-widest text-lg hover:scale-105 transition-transform active:scale-95 shadow-xl">
-              Demander un Audit Gratuit
-            </button>
+            <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <Sparkles className="text-[#00674F]" size={24} />
+                  <span className="text-white font-black uppercase tracking-[0.3em] text-xs">Innovation Durable</span>
+                </div>
+                <h2 className="text-5xl md:text-7xl font-black uppercase text-white leading-[0.9] tracking-tighter">
+                  Prêt à <br /><span className="text-[#00674F]">Optimiser ?</span>
+                </h2>
+                <p className="text-blue-100/60 mt-8 font-medium text-lg max-w-md">
+                  Rejoignez les leaders industriels qui transforment déjà leurs flux en performance économique.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <button className="bg-[#00674F] text-white px-12 py-6 rounded-full font-black uppercase tracking-widest text-sm hover:bg-white hover:text-[#083344] transition-all shadow-xl active:scale-95 text-center">
+                  Demander un Audit BissaLab
+                </button>
+                <button className="bg-white/5 backdrop-blur-md border border-white/10 text-white px-12 py-6 rounded-full font-black uppercase tracking-widest text-sm hover:bg-white/10 transition-all text-center">
+                  Consulter les Tarifs
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-    <Footer />
+
+      <Footer />
     </div>
   );
 };

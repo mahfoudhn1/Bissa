@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import './globals.css'
-import Header from "./components/home/header";
-import Footer from "./components/home/footer";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,6 +17,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Bissa",
   description: "Bissa eco",
+  icons: {
+    icon: "/favicon.ico", // This looks into public/favicon.ico
+    apple: "/apple-touch-icon.png", // If you have one
+  }
 };
 
 export default function RootLayout({
@@ -27,9 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-
-      >
+      <body>
 
         {children}
 

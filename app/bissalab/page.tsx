@@ -1,141 +1,177 @@
 "use client";
 
 import React from 'react';
-import { ShieldCheck, BookOpen, Lock, FileText, Users, Zap, HardHat, CheckCircle } from 'lucide-react';
+import { 
+  ShieldCheck, 
+  BookOpen, 
+  Lock, 
+  FileText, 
+  Users, 
+  Zap, 
+  HardHat, 
+  CheckCircle, 
+  ArrowRight,
+  ClipboardCheck
+} from 'lucide-react';
 import Header from '../components/home/header';
 import Footer from '../components/home/footer';
 
 const BissaLabPage = () => {
   return (
-    <div className="bg-white min-h-screen font-sans selection:bg-[#2DBE2D] selection:text-white">
+    <div className="bg-white min-h-screen font-sans selection:bg-[#083344] selection:text-white">
       <Header/>
-      {/* --- HEADER DE SECTION BISSALAB --- */}
-      <section className="relative bg-[#0B1C14] pt-32 pb-20 px-6 lg:px-16 overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-[#2DBE2D] opacity-5 skew-x-12 translate-x-20" />
+      
+      {/* --- HERO SECTION: PETROL BLUE AUTHORITY --- */}
+      <section className="relative bg-white pt-40 pb-24 px-6 lg:px-16 overflow-hidden">
+        {/* Abstract pattern - Emerald technical glow */}
+        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-[#083344] rounded-full opacity-10 blur-3xl -z-0" />
+        
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-12 h-[2px] bg-[#FF5C28]" />
-            <span className="text-[#2DBE2D] font-black uppercase tracking-[0.3em] text-xs">Pôle Expertise</span>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-12 h-1.5 bg-[#083344] rounded-full" />
+            <span className="text-[#2D2D2D] font-black uppercase tracking-[0.2em] text-[11px]">Pôle Expertise & Ingénierie</span>
           </div>
-          <h1 className="text-5xl md:text-8xl font-black italic uppercase leading-[0.9] text-white mb-8">
-            Bissa<span className="text-[#FF5C28]">Lab</span>
-          </h1>
-          <p className="text-gray-400 max-w-3xl text-lg leading-relaxed border-l-4 border-[#FF5C28] pl-6">
-            BissaLab est l'entité d'expertise de BissaEnvironnement dédiée à la maîtrise des risques et à l'optimisation des performances environnementales. Nous accompagnons les industriels dans la mise en conformité de leurs installations et la transformation de leur modèle économique.
-          </p>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-end">
+            <div>
+                <h1 className="text-6xl md:text-9xl font-black uppercase leading-[0.85] text-[#2D2D2D] tracking-tighter mb-10">
+                  Bissa<br /><span className="text-[#083344]">Lab.</span>
+                </h1>
+                <p className="text-gray-500 max-w-xl text-xl font-medium leading-relaxed border-l-4 border-[#083344] pl-6">
+                  Maîtrise des risques et optimisation des performances environnementales. Nous transformons vos contraintes réglementaires en leviers de rentabilité.
+                </p>
+            </div>
+            <div className="hidden lg:flex justify-end pb-4">
+                <div className="backdrop-blur-lg border border-white/10 p-10 bg-[#083344] rounded-[40px] max-w-sm">
+                    <ClipboardCheck className="text-white/80 mb-4" size={32} />
+                    <p className="text-sm font-bold text-white/80 leading-relaxed italic">
+                      "Une approche pragmatique : nos études ne sont pas des rapports, ce sont des feuilles de route opérationnelles."
+                    </p>
+                </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* --- CONTENU PRINCIPAL --- */}
-      <section className="py-24 px-6 lg:px-16">
+      {/* --- BUREAU D'ÉTUDES: BENTO STYLE --- */}
+      <section className="py-24 px-6 lg:px-16 bg-[#F4F4F1]">
         <div className="max-w-7xl mx-auto">
-          
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            
-            {/* 1. Bureau d'Études & Maîtrise des Risques */}
-            <div className="space-y-8">
-              <div className="flex items-center gap-4">
-                <div className="bg-[#0B1C14] p-3 text-white">
-                  <ShieldCheck size={32} />
-                </div>
-                <h2 className="text-3xl font-black italic uppercase text-[#0B1C14]">
-                  1. Bureau d'Études & Maîtrise des Risques
-                </h2>
-              </div>
-              
-              <p className="text-gray-600 font-bold italic">
-                Nous réalisons les analyses critiques nécessaires à la pérennité de vos activités face aux exigences réglementaires :
-              </p>
-
-              <div className="space-y-6">
-                <div className="group p-6 bg-[#f9fafb] border-l-4 border-[#FF5C28] transition-all">
-                  <h4 className="font-black text-[#0B1C14] uppercase text-sm mb-2">Étude d'Impact Environnemental (EIE)</h4>
-                  <p className="text-sm text-gray-500 leading-relaxed">Évaluation rigoureuse des effets de vos projets sur l'écosystème pour garantir leur acceptabilité et leur durabilité.</p>
-                </div>
-
-                <div className="group p-6 bg-[#f9fafb] border-l-4 border-[#FF5C28] transition-all">
-                  <h4 className="font-black text-[#0B1C14] uppercase text-sm mb-2">Étude de Danger (EDD)</h4>
-                  <p className="text-sm text-gray-500 leading-relaxed">Identification des risques technologiques, modélisation des scénarios d'accidents et définition des barrières de sécurité.</p>
-                </div>
-
-                <div className="group p-6 bg-[#f9fafb] border-l-4 border-[#FF5C28] transition-all">
-                  <h4 className="font-black text-[#0B1C14] uppercase text-sm mb-2">Plan d'Intervention Interne (PII)</h4>
-                  <p className="text-sm text-gray-500 leading-relaxed">Élaboration de protocoles de gestion de crise pour protéger vos collaborateurs, vos actifs et l'environnement en cas d'incident.</p>
-                </div>
-
-                <div className="group p-6 bg-[#f9fafb] border-l-4 border-[#FF5C28] transition-all">
-                  <h4 className="font-black text-[#0B1C14] uppercase text-sm mb-2">Audit Environnemental</h4>
-                  <p className="text-sm text-gray-500 leading-relaxed">Diagnostic exhaustif de vos sites pour identifier les non-conformités et optimiser vos consommations de ressources.</p>
-                </div>
-              </div>
+          <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+            <h2 className="text-4xl md:text-5xl font-black uppercase text-[#2D2D2D] tracking-tighter leading-none">
+              Maîtrise des <br /><span className="text-gray-400">Risques Critiques</span>
+            </h2>
+            <div className="bg-white px-6 py-3 rounded-full border border-gray-200 flex items-center gap-3 shadow-sm">
+                <ShieldCheck size={18} className="text-[#083344]" />
+                <span className="text-[11px] font-black uppercase tracking-widest text-[#2D2D2D]">Conformité ICPE</span>
             </div>
+          </div>
 
-            {/* 2. Formation & Approche */}
-            <div className="space-y-12">
-              <div className="bg-[#2DBE2D] p-10 rounded-3xl relative overflow-hidden text-[#0B1C14]">
-                <div className="relative z-10">
-                  <div className="flex items-center gap-4 mb-6">
-                    <BookOpen size={32} />
-                    <h2 className="text-3xl font-black italic uppercase">2. Formation</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { title: "Étude d'Impact (EIE)", desc: "Évaluation rigoureuse des effets de vos projets sur l'écosystème pour garantir leur acceptabilité." },
+              { title: "Étude de Danger (EDD)", desc: "Identification des risques technologiques et définition des barrières de sécurité industrielles." },
+              { title: "Plan d'Intervention (PII)", desc: "Protocoles de gestion de crise pour protéger vos collaborateurs et vos actifs en cas d'incident." },
+              { title: "Audit Environnemental", desc: "Diagnostic exhaustif pour identifier les non-conformités et optimiser vos ressources." }
+            ].map((item, i) => (
+              <div key={i} className="bg-white p-10 rounded-[40px] shadow-sm hover:shadow-xl transition-all duration-500 group border border-gray-100">
+                <div className="flex justify-between items-start mb-6">
+                  <h4 className="font-black text-[#2D2D2D] uppercase text-xl tracking-tighter max-w-[200px]">{item.title}</h4>
+                  <div className="w-12 h-12 bg-[#F4F4F1] text-[#2D2D2D] group-hover:bg-[#083344] group-hover:text-white rounded-xl flex items-center justify-center transition-colors">
+                    <FileText size={20} />
                   </div>
-                  <p className="font-bold mb-6 italic text-sm">Le savoir est le moteur de l'économie circulaire. BissaLab forme vos équipes pour transformer vos contraintes en leviers de performance :</p>
-                  <ul className="space-y-4 text-sm font-bold uppercase tracking-tight">
-                    <li className="flex gap-3 items-start"><Zap size={18} className="shrink-0 mt-1" /> Management de l'Environnement: Maîtrise des normes ISO et de la réglementation en vigueur.</li>
-                    <li className="flex gap-3 items-start"><CheckCircle size={18} className="shrink-0 mt-1" /> Techniques de l'Économie Circulaire: Éco-conception, gestion optimisée des flux et valorisation des ressources.</li>
-                    <li className="flex gap-3 items-start"><HardHat size={18} className="shrink-0 mt-1" /> Sécurité Industrielle: Formation aux risques spécifiques et à l'application des plans d'urgence.</li>
-                  </ul>
                 </div>
-                <BookOpen size={200} className="absolute -bottom-10 -right-10 opacity-10" />
+                <p className="text-sm text-gray-500 font-medium leading-relaxed">{item.desc}</p>
               </div>
-
-              {/* L'Approche BissaLab */}
-          
-            </div>
+            ))}
           </div>
-
-          {/* --- TABLEAU DES SERVICES --- */}
-          
-          <div className="mt-24 overflow-hidden border border-gray-200 rounded-2xl shadow-xl">
-            <div className="bg-[#0B1C14] p-10 rounded-3xl text-white mb-4">
-              <h3 className="text-2xl font-black italic uppercase text-[#FF5C28] mb-4">L'Approche BissaLab: "Audit - Action - Acquisition"</h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                Contrairement aux consultants classiques, BissaLab s'appuie sur la réalité du terrain de Bissa Environnement.
-              </p>
-              <p className="text-white font-black italic uppercase tracking-wider">
-                Nos études ne sont pas de simples rapports papier, mais des feuilles de route opérationnelles.
-              </p>
-            </div>
-            <table className="w-full text-left text-sm">
-              <thead className="bg-[#0B1C14] text-white uppercase text-[10px] tracking-widest font-black">
-                <tr>
-                  <th className="px-8 py-6 italic">Service</th>
-                  <th className="px-8 py-6 italic">Livrable Clé</th>
-                  <th className="px-8 py-6 italic">Impact Client</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="px-8 py-6 font-black text-[#0B1C14] uppercase">Audit</td>
-                  <td className="px-8 py-6 text-gray-500 italic">Rapport de conformité</td>
-                  <td className="px-8 py-6 flex items-center gap-2 font-bold text-[#2DBE2D] uppercase tracking-tighter"><Lock size={14}/> Sécurité juridique totale</td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="px-8 py-6 font-black text-[#0B1C14] uppercase">EIE / EDD</td>
-                  <td className="px-8 py-6 text-gray-500 italic">Dossier réglementaire</td>
-                  <td className="px-8 py-6 flex items-center gap-2 font-bold text-[#2DBE2D] uppercase tracking-tighter"><FileText size={14}/> Autorisation d'exploiter sécurisée</td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="px-8 py-6 font-black text-[#0B1C14] uppercase">Formation</td>
-                  <td className="px-8 py-6 text-gray-500 italic">Certificat de compétences</td>
-                  <td className="px-8 py-6 flex items-center gap-2 font-bold text-[#2DBE2D] uppercase tracking-tighter"><Users size={14}/> Équipes autonomes et expertes</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
         </div>
       </section>
-      <Footer/>
+
+      {/* --- FORMATION: THE HIGHLIGHT SECTION --- */}
+      <section className="py-32 px-6 lg:px-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-5 gap-12 items-center">
+            <div className="lg:col-span-2">
+              <div className="w-12 h-1.5 bg-[#083344] rounded-full mb-6" />
+              <h2 className="text-5xl font-black uppercase text-[#2D2D2D] tracking-tighter mb-6">
+                Le Savoir est <br /><span className="text-[#083344]">un Moteur</span>
+              </h2>
+              <p className="text-gray-500 font-medium mb-8">
+                Nous formons vos équipes pour transformer vos contraintes environnementales en leviers de performance durable.
+              </p>
+              <button className="flex items-center gap-4 bg-[#083344] text-white px-8 py-4 rounded-full font-black uppercase text-xs tracking-widest hover:bg-[#083344] transition-all">
+                Catalogue Formation <ArrowRight size={16} />
+              </button>
+            </div>
+
+            <div className="lg:col-span-3 grid gap-4">
+              {[
+                { icon: <Zap />, title: "Management Environnement", label: "Normes ISO & Réglementation" },
+                { icon: <CheckCircle />, title: "Économie Circulaire", label: "Éco-conception & Flux" },
+                { icon: <HardHat />, title: "Sécurité Industrielle", label: "Risques & Urgences" }
+              ].map((box, idx) => (
+                <div key={idx} className="flex items-center gap-6 p-8 bg-[#083344] rounded-[32px] text-white group hover:translate-x-4 transition-transform">
+                  <div className="text-[#083344] group-hover:scale-125 transition-transform">
+                    {React.cloneElement(box.icon, { size: 32 })}
+                  </div>
+                  <div>
+                    <h5 className="font-black uppercase tracking-tight">{box.title}</h5>
+                    <p className="text-xs text-white/50 font-bold uppercase tracking-widest">{box.label}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- SERVICES TABLE: CLEAN MINIMALISM --- */}
+      <section className="pb-32 px-6 lg:px-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="overflow-hidden rounded-[48px] border border-gray-100 shadow-2xl">
+            <div className="bg-[#2D2D2D] p-12 text-white flex flex-col md:flex-row justify-between items-center gap-8">
+              <div>
+                <h3 className="text-3xl font-black uppercase tracking-tighter mb-2">Approche : Audit • Action • Acquisition</h3>
+                <p className="text-gray-400 font-medium">BissaLab s'appuie sur la réalité du terrain de Bissa Environnement.</p>
+              </div>
+              <div className="shrink-0 bg-[#083344] px-6 py-3 rounded-full font-black uppercase text-[10px] tracking-widest">
+                Méthodologie Validée
+              </div>
+            </div>
+            
+            <div className="overflow-x-auto">
+              <table className="w-full text-left">
+                <thead className="bg-[#F4F4F1] border-b border-gray-100">
+                  <tr>
+                    <th className="px-12 py-6 font-black uppercase text-[10px] tracking-widest text-gray-400">Service</th>
+                    <th className="px-12 py-6 font-black uppercase text-[10px] tracking-widest text-gray-400">Livrable Clé</th>
+                    <th className="px-12 py-6 font-black uppercase text-[10px] tracking-widest text-gray-400">Impact Client</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-50">
+                  {[
+                    { s: "Audit", l: "Rapport de conformité", i: "Sécurité juridique totale", icon: <Lock /> },
+                    { s: "EIE / EDD", l: "Dossier réglementaire", i: "Autorisation sécurisée", icon: <FileText /> },
+                    { s: "Formation", l: "Certificat de compétences", i: "Équipes autonomes", icon: <Users /> }
+                  ].map((row, index) => (
+                    <tr key={index} className="hover:bg-gray-50 transition-colors group">
+                      <td className="px-12 py-8 font-black text-[#083344] uppercase">{row.s}</td>
+                      <td className="px-12 py-8 text-gray-500 font-medium italic">{row.l}</td>
+                      <td className="px-12 py-8">
+                        <div className="flex items-center gap-3 font-black text-[#083344] uppercase text-[11px] tracking-tight">
+                          {React.cloneElement(row.icon, { size: 14 })} {row.i}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 };
